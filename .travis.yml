@@ -6,6 +6,7 @@ before_install:
   - sudo apt-get install -y libmariadbclient-dev libpoco-dev
 
 script:
+  - sudo apt-get install -y libmariadbclient-dev libpoco-dev
   - mkdir build && cd build
   - cmake .. && make && make test
 
