@@ -1,24 +1,24 @@
 ///////////////////////////////////////////////////////////
 ///
-///     file: bubblechatapplication.hpp
+///     file: chatapplication.hpp
 ///
 ///   author: andy
 ///     date: 2019/4/24
 ///
 ///////////////////////////////////////////////////////////
-#ifndef BUBBLECHATAPPLICATION_HPP
-#define BUBBLECHATAPPLICATION_HPP
+#ifndef CHATAPPLICATION_HPP
+#define CHATAPPLICATION_HPP
 
 #include <Poco/Util/ServerApplication.h>
 
 using Poco::Util::ServerApplication;
 using Poco::Util::OptionSet;
 
-class BubbleChatApplication
+class ChatApplication
         : public ServerApplication
 {
 public:
-    explicit BubbleChatApplication();
+    explicit ChatApplication();
 
 protected:
     void initialize(Application &self) final;

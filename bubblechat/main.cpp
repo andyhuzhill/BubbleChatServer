@@ -9,6 +9,6 @@
 
 #include <iostream>
 
-#include "bubblechatapplication.hpp"
+#include "chatapplication.hpp"
 
-POCO_SERVER_MAIN(BubbleChatApplication)
+POCO_SERVER_MAIN(ChatApplication)
