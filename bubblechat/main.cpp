@@ -1,0 +1,14 @@
+///////////////////////////////////////////////////////////
+///
+///     file: main.cpp
+///
+///   author: andy
+///     date: 2019/4/24
+///
+///////////////////////////////////////////////////////////
+
+#include <iostream>
+
+#include "bubblechatapplication.hpp"
+
+POCO_SERVER_MAIN(BubbleChatApplication)
