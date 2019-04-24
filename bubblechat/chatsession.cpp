@@ -8,9 +8,15 @@
 ///////////////////////////////////////////////////////////
 #include "chatsession.hpp"
 
-#include <Poco/Util/ServerApplication.h>
+#include <iostream>
 
+#include <Poco/Util/ServerApplication.h>
+#include <Poco/Net/SocketStream.h>
+#include <Poco/StreamCopier.h>
+
+using Poco::StreamCopier;
 using Poco::Util::ServerApplication;
+using Poco::Net::SocketStream;
 
 ChatSession::ChatSession(const StreamSocket &socket)
     : TCPServerConnection (socket)
@@ -20,11 +26,12 @@ ChatSession::ChatSession(const StreamSocket &socket)
 
 void ChatSession::run()
 {
-     auto& logger = ServerApplication::instance().logger();
+    auto& logger = ServerApplication::instance().logger();
 
-     logger.information("socket = %s", socket().peerAddress().toString());
+    logger.information("socket = %s", socket().peerAddress().toString());
 
-     for (;;) {
-//         socket().receiveBytes()
-     }
+    SocketStream stream(socket());
+    for (;;) {
+        StreamCopier::copyStreamUnbuffered(stream, std::cout);
+    }
 }
