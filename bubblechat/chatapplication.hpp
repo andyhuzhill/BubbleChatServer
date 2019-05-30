@@ -32,6 +32,11 @@ protected:
     void handleOption(const std::string& name, const std::string& value) final;
 
     int main(const std::vector<std::string>& args) final;
+    
+    void displayHelp();
+    
+private:
+    bool _helpRequested = false;
 };
 
 #endif // BUBBLECHATAPPLICATION_HPP

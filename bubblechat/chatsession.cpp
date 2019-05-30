@@ -10,10 +10,12 @@
 
 #include <iostream>
 
+#include <Poco/FIFOBuffer.h>
 #include <Poco/Util/ServerApplication.h>
 #include <Poco/Net/SocketStream.h>
 #include <Poco/StreamCopier.h>
 
+using Poco::FIFOBuffer;
 using Poco::StreamCopier;
 using Poco::Util::ServerApplication;
 using Poco::Net::SocketStream;
@@ -28,10 +30,16 @@ void ChatSession::run()
 {
     auto& logger = ServerApplication::instance().logger();
 
-    logger.information("socket = %s", socket().peerAddress().toString());
-
-    SocketStream stream(socket());
+    logger.information("peer socket = %s", socket().peerAddress().toString());
+    
+    auto sock = socket();
+    FIFOBuffer fifo(1024);
+    
     for (;;) {
-        StreamCopier::copyStreamUnbuffered(stream, std::cout);
+        auto cnt = sock.receiveBytes(fifo);
+        if (!cnt) {
+            logger.information("Disconnected! %s", sock.peerAddress().toString());
+            break;
+        }
     }
 }
