@@ -20,6 +20,8 @@ using Poco::StreamCopier;
 using Poco::Util::ServerApplication;
 using Poco::Net::SocketStream;
 
+using namespace Bubble;
+
 ChatSession::ChatSession(const StreamSocket &socket)
     : TCPServerConnection (socket)
 {
@@ -33,7 +35,7 @@ void ChatSession::run()
     logger.information("peer socket = %s", socket().peerAddress().toString());
     
     auto sock = socket();
-    FIFOBuffer fifo(1024);
+    FIFOBuffer fifo(4 * 1024);
     
     for (;;) {
         auto cnt = sock.receiveBytes(fifo);

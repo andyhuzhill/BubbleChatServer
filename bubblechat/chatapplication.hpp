@@ -14,11 +14,13 @@
 using Poco::Util::ServerApplication;
 using Poco::Util::OptionSet;
 
+namespace Bubble {
+
 class ChatApplication
         : public ServerApplication
 {
 public:
-    explicit ChatApplication();
+    ChatApplication() = default;
 
 protected:
     void initialize(Application &self) final;
@@ -38,5 +40,7 @@ protected:
 private:
     bool _helpRequested = false;
 };
+
+} // Bubble namespace
 
 #endif // BUBBLECHATAPPLICATION_HPP

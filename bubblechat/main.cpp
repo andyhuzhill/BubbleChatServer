@@ -11,4 +11,4 @@
 
 #include "chatapplication.hpp"
 
-POCO_SERVER_MAIN(ChatApplication)
+POCO_SERVER_MAIN(Bubble::ChatApplication)
