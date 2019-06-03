@@ -2,7 +2,7 @@
 ///
 ///     file: bubblechatapplication.cpp
 ///
-///   author: andy
+///   author: Andy Scout <andyhuzhill@gmail.com>
 ///     date: 2019/4/24
 ///
 ///////////////////////////////////////////////////////////

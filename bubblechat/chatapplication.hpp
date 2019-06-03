@@ -2,7 +2,7 @@
 ///
 ///     file: chatapplication.hpp
 ///
-///   author: andy
+///   author: Andy Scout <andyhuzhill@gmail.com>
 ///     date: 2019/4/24
 ///
 ///////////////////////////////////////////////////////////
@@ -35,10 +35,10 @@ protected:
 
     int main(const std::vector<std::string>& args) final;
     
-    void displayHelp();
-    
 private:
     bool _helpRequested = false;
+    
+    void displayHelp();
 };
 
 } // Bubble namespace
